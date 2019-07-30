@@ -1817,7 +1817,7 @@ class CAS_Client
                 phpCAS::trace("Session id: ".$session_id);
 
                 // destroy a possible application session created before phpcas
-                if (session_id() !== "") {
+                if (session_status() == PHP_SESSION_ACTIVE){
                     session_unset();
                     session_destroy();
                 }
